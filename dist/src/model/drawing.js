@@ -1,5 +1,5 @@
 import { BoundBox, } from './bound-box';
-import { Line } from './line';
+import { Rectangle } from './rectangle';
 var Drawing = /** @class */ (function () {
     function Drawing() {
         this.figures = [];
@@ -12,18 +12,18 @@ var Drawing = /** @class */ (function () {
     };
     // TODO: delete this
     Drawing.prototype.addTestFigures = function () {
-        var redLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
+        var redRectangle = new Rectangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
         { r: 255, g: 0, b: 0, a: 255 });
         this.figures
-            .push(redLine);
-        var greenLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
+            .push(redRectangle);
+        var greenRectangle = new Rectangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
         { r: 0, g: 255, b: 0, a: 255 });
         this.figures
-            .push(greenLine);
-        var blackLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
+            .push(greenRectangle);
+        var blackRectangle = new Rectangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
         { r: 0, g: 0, b: 0, a: 255 });
         this.figures
-            .push(blackLine);
+            .push(blackRectangle);
     };
     // NEW
     Drawing.prototype.selectAll = function () {
