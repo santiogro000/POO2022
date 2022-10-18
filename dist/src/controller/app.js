@@ -5,7 +5,7 @@ var App = /** @class */ (function () {
     function App() {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
-        document.title = 'Graphics Editor v0.3';
+        document.title = 'Graphics Editor v0.4';
     }
     // lazy initialization (preferred)
     App.getInstance = function () {
@@ -16,10 +16,6 @@ var App = /** @class */ (function () {
             App.instance = new App();
         }
         return App.instance;
-    };
-    App.prototype.getContext = function () {
-        return this.mainWindow
-            .getContext();
     };
     App.prototype.run = function () {
         this.drawing // TODO: remove

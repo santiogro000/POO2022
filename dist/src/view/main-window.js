@@ -3,10 +3,6 @@ var MainWindow = /** @class */ (function () {
     function MainWindow() {
         this.canvas = new Canvas();
     }
-    MainWindow.prototype.getContext = function () {
-        return this.canvas
-            .getContext();
-    };
     MainWindow.prototype.repaint = function () {
         this.canvas
             .repaint();

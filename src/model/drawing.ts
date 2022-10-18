@@ -62,7 +62,7 @@ export class Drawing {
     // NEW
     selectAll(): void {
         this.figures.forEach( 
-            (f: Figure) => f.selected = !f.selected 
+            (f: Figure) => f.selected = true 
         );
     }
 }

@@ -18,17 +18,12 @@ var Line = /** @class */ (function (_super) {
     function Line(bbox, color) {
         return _super.call(this, bbox, color) || this;
     }
-    Line.prototype.paint = function (ctx) {
+    Line.prototype.doPaint = function (ctx) {
         ctx.strokeStyle = ColorHelper.colorAsString(this.color);
         ctx.beginPath();
         ctx.moveTo(this.bbox.x, this.bbox.y);
         ctx.lineTo(this.bbox.x + this.bbox.w, this.bbox.y + this.bbox.h);
         ctx.stroke();
-        // NEW
-        if (this.selected) {
-            this.bbox
-                .paint(ctx);
-        }
     };
     return Line;
 }(Figure));

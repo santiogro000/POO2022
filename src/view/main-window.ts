@@ -9,10 +9,6 @@ export class MainWindow {
     constructor() {
         this.canvas = new Canvas();
     }
-    getContext(): CanvasRenderingContext2D {
-        return this.canvas
-            .getContext();
-    }
 
     repaint(): void {           // NEW
         this.canvas

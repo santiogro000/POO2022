@@ -12,7 +12,7 @@ export class App {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
 
-        document.title = 'Graphics Editor v0.3';
+        document.title = 'Graphics Editor v0.4';
     }
 
     // lazy initialization (preferred)
@@ -25,11 +25,6 @@ export class App {
         }
 
         return App.instance;
-    
-    }
-    getContext(): CanvasRenderingContext2D {
-        return this.mainWindow
-            .getContext();
     }
 
     run(): void {

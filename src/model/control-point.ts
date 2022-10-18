@@ -30,7 +30,7 @@ export class ControlPoint
         let x = 0;
         let y = 0;
 
-        // TODO: complete switch -- COMPLETED
+        // TODO: complete switch
 
         switch ( this.cardinal ) {
             case Cardinal.NORTH:

@@ -27,7 +27,7 @@ var Drawing = /** @class */ (function () {
     };
     // NEW
     Drawing.prototype.selectAll = function () {
-        this.figures.forEach(function (f) { return f.selected = !f.selected; });
+        this.figures.forEach(function (f) { return f.selected = true; });
     };
     return Drawing;
 }());

@@ -24,7 +24,7 @@ export class Line
         );
     }
         
-    paint(
+    protected doPaint(
         ctx: CanvasRenderingContext2D ): void {
 
         ctx.strokeStyle = ColorHelper.colorAsString(
@@ -41,13 +41,5 @@ export class Line
             this.bbox.y + this.bbox.h
         );
         ctx.stroke();
-
-        // NEW
-        if ( this.selected ) {
-            this.bbox
-                .paint(
-                    ctx
-                );
-        }
     }
 }

@@ -19,7 +19,7 @@ var ControlPoint = /** @class */ (function () {
         ctx.fillStyle = BoundBox.color;
         var x = 0;
         var y = 0;
-        // TODO: complete switch -- COMPLETED
+        // TODO: complete switch
         switch (this.cardinal) {
             case Cardinal.NORTH:
                 x = this.owner.x + this.owner.w / 2;

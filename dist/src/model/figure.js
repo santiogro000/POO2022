@@ -16,6 +16,16 @@ var Figure = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    // Template Method
+    Figure.prototype.paint = function (ctx) {
+        // 1. paint figure
+        this.doPaint(ctx);
+        // 2. paint bounding box
+        if (this.selected) {
+            this.bbox
+                .paint(ctx);
+        }
+    };
     return Figure;
 }());
 export { Figure };
