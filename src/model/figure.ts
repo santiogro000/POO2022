@@ -33,4 +33,18 @@ export abstract class Figure {
 
     // non-public members -----------------------------
     protected _selected: boolean = false;
+
+    protected static colorAsString(        // NEW
+        color: Color ): string {
+
+        return 'rgba('
+            + color.r
+            + ','
+            + color.g
+            + ','
+            + color.b
+            + ','
+            + color.a
+            + ')';
+    }
 }

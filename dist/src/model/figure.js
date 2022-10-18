@@ -13,6 +13,18 @@ var Figure = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Figure.colorAsString = function (// NEW
+    color) {
+        return 'rgba('
+            + color.r
+            + ','
+            + color.g
+            + ','
+            + color.b
+            + ','
+            + color.a
+            + ')';
+    };
     return Figure;
 }());
 export { Figure };

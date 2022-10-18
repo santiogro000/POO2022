@@ -1,5 +1,6 @@
-import { BadWindow } from '../test/bad-window';
-import { GoodWindow } from '../test/good-window';
+import { 
+    App 
+} from '../controller/app';
 
 export class MainWindow {
     // private menu: MenuHelper;
@@ -8,15 +9,14 @@ export class MainWindow {
     constructor() {
         this.canvas = new Canvas();
     }
-
     getContext(): CanvasRenderingContext2D {
         return this.canvas
             .getContext();
     }
 
-    windowTest(): void {
+    repaint(): void {           // NEW
         this.canvas
-            .windowTest();
+            .repaint();
     }
 }
 
@@ -52,56 +52,6 @@ class Canvas {
             );
     }
 
-    windowTest(): void {
-
-        this.drawGrid(
-            this.ctx
-        );
-
-        const bw: BadWindow = new BadWindow( 10, 10 );
-        // initial paint
-        bw.paint( 
-            this.ctx 
-        );
-
-        const gw: GoodWindow = new GoodWindow( 10, 260 );
-        // initial paint
-        gw.paint( 
-            this.ctx 
-        );
-        // gw.x = 200;
-        // gw.y = 100;
-
-        // 5 seconds later...
-        setTimeout( () => {
-            this.drawGrid(
-                this.ctx
-            );
-
-            bw.paint( 
-                this.ctx 
-            );
-            bw.x = 350;		// acceso directo
-            bw.y = 10;		// acceso directo    
-            console.log(
-                'BAD => ' + JSON.stringify(
-                    bw
-                )
-            );
-
-            gw.setPosition( // acceso a través de la IP
-                350,
-                10
-            );
-            console.log(
-                'GOOD => ' + JSON.stringify(
-                    gw
-                )
-            );
-        },
-        5000 );
-    }
-
     getContext(): CanvasRenderingContext2D {
         return this.ctx;
     }
@@ -112,6 +62,17 @@ class Canvas {
     
     get height(): number {
         return this.htmlElement.height;
+    }
+
+    repaint(): void {           // NEW
+        this.drawGrid(
+            this.ctx
+        );
+
+        App.getInstance()
+            .paint(
+                this.ctx
+            );
     }
 
     // private methods ------------------------------------------------------

@@ -4,7 +4,7 @@ var App = /** @class */ (function () {
     function App() {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
-        document.title = 'Graphics Editor v0.1';
+        document.title = 'Graphics Editor v0.2';
     }
     // lazy loading (preferred)
     App.getInstance = function () {
@@ -21,9 +21,19 @@ var App = /** @class */ (function () {
             .getContext();
     };
     App.prototype.run = function () {
-        // TODO: remove in v1.1
+        this.drawing // NEW // TODO: remove
+            .addTestFigures();
+        this.repaint();
+    };
+    App.prototype.repaint = function () {
         this.mainWindow
-            .windowTest();
+            .repaint();
+    };
+    // from view to model
+    App.prototype.paint = function (// NEW
+    ctx) {
+        this.drawing
+            .paint(ctx);
     };
     return App;
 }());

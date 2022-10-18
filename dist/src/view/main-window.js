@@ -1,5 +1,4 @@
-import { BadWindow } from '../test/bad-window';
-import { GoodWindow } from '../test/good-window';
+import { App } from '../controller/app';
 var MainWindow = /** @class */ (function () {
     function MainWindow() {
         this.canvas = new Canvas();
@@ -8,9 +7,9 @@ var MainWindow = /** @class */ (function () {
         return this.canvas
             .getContext();
     };
-    MainWindow.prototype.windowTest = function () {
+    MainWindow.prototype.repaint = function () {
         this.canvas
-            .windowTest();
+            .repaint();
     };
     return MainWindow;
 }());
@@ -27,29 +26,6 @@ var Canvas = /** @class */ (function () {
         this.ctx = this.htmlElement
             .getContext('2d');
     }
-    Canvas.prototype.windowTest = function () {
-        var _this = this;
-        this.drawGrid(this.ctx);
-        var bw = new BadWindow(10, 10);
-        // initial paint
-        bw.paint(this.ctx);
-        var gw = new GoodWindow(10, 260);
-        // initial paint
-        gw.paint(this.ctx);
-        // gw.x = 200;
-        // gw.y = 100;
-        // 5 seconds later...
-        setTimeout(function () {
-            _this.drawGrid(_this.ctx);
-            bw.paint(_this.ctx);
-            bw.x = 350; // acceso directo
-            bw.y = 10; // acceso directo    
-            console.log('BAD => ' + JSON.stringify(bw));
-            gw.setPosition(// acceso a través de la IP
-            350, 10);
-            console.log('GOOD => ' + JSON.stringify(gw));
-        }, 5000);
-    };
     Canvas.prototype.getContext = function () {
         return this.ctx;
     };
@@ -67,6 +43,11 @@ var Canvas = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Canvas.prototype.repaint = function () {
+        this.drawGrid(this.ctx);
+        App.getInstance()
+            .paint(this.ctx);
+    };
     // private methods ------------------------------------------------------
     Canvas.prototype.clear = function (ctx) {
         ctx.fillStyle = '#FAFAFA';
