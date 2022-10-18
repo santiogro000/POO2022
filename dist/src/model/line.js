@@ -11,18 +11,24 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { Figure } from './figure';
+import { ColorHelper, } from '../util/color-helper';
+import { Figure, } from './figure';
 var Line = /** @class */ (function (_super) {
     __extends(Line, _super);
-    function Line(position, size, color) {
-        return _super.call(this, position, size, color) || this;
+    function Line(bbox, color) {
+        return _super.call(this, bbox, color) || this;
     }
     Line.prototype.paint = function (ctx) {
-        ctx.strokeStyle = Figure.colorAsString(this.color);
+        ctx.strokeStyle = ColorHelper.colorAsString(this.color);
         ctx.beginPath();
-        ctx.moveTo(this.position.x, this.position.y);
-        ctx.lineTo(this.position.x + this.size.w, this.position.y + this.size.h);
+        ctx.moveTo(this.bbox.x, this.bbox.y);
+        ctx.lineTo(this.bbox.x + this.bbox.w, this.bbox.y + this.bbox.h);
         ctx.stroke();
+        // NEW
+        if (this.selected) {
+            this.bbox
+                .paint(ctx);
+        }
     };
     return Line;
 }(Figure));

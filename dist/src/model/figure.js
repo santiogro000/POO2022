@@ -1,7 +1,7 @@
 var Figure = /** @class */ (function () {
-    function Figure(position, size, color) {
-        this.position = position;
-        this.size = size;
+    function Figure(bbox, // NEW
+    color) {
+        this.bbox = bbox;
         this.color = color;
         // non-public members -----------------------------
         this._selected = false;
@@ -10,21 +10,12 @@ var Figure = /** @class */ (function () {
         get: function () {
             return this._selected;
         },
+        set: function (s) {
+            this._selected = s;
+        },
         enumerable: false,
         configurable: true
     });
-    Figure.colorAsString = function (// NEW
-    color) {
-        return 'rgba('
-            + color.r
-            + ','
-            + color.g
-            + ','
-            + color.b
-            + ','
-            + color.a
-            + ')';
-    };
     return Figure;
 }());
 export { Figure };

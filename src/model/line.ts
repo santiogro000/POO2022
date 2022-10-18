@@ -1,41 +1,53 @@
 import { 
-    Color, 
-    Dimension, 
+    BoundBox, 
+} from './bound-box';
+
+import { 
+    Color,
+    ColorHelper, 
+} from '../util/color-helper';
+
+import { 
     Figure,
-    Position
 } from './figure';
 
 export class Line 
     extends Figure {
 
     constructor(
-        position: Position,
-        size: Dimension,
+        bbox: BoundBox,
         color: Color ) {
 
         super(
-            position,
-            size,
+            bbox,
             color
         );
     }
         
-    paint( 
+    paint(
         ctx: CanvasRenderingContext2D ): void {
 
-        ctx.strokeStyle = Figure.colorAsString(
+        ctx.strokeStyle = ColorHelper.colorAsString(
             this.color
         );
 
         ctx.beginPath();
         ctx.moveTo(
-            this.position.x, 
-            this.position.y
+            this.bbox.x, 
+            this.bbox.y
         );
         ctx.lineTo(
-            this.position.x + this.size.w, 
-            this.position.y + this.size.h
+            this.bbox.x + this.bbox.w, 
+            this.bbox.y + this.bbox.h
         );
         ctx.stroke();
+
+        // NEW
+        if ( this.selected ) {
+            this.bbox
+                .paint(
+                    ctx
+                );
+        }
     }
 }

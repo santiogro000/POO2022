@@ -1,4 +1,8 @@
 import { 
+    BoundBox, 
+} from './bound-box';
+
+import { 
     Figure, 
 } from './figure';
 
@@ -16,6 +20,7 @@ export class Drawing {
     constructor() {
     }
 
+    // polymorphism in action
     paint(
         ctx: CanvasRenderingContext2D ): void {
 
@@ -24,10 +29,10 @@ export class Drawing {
         );
     }
 
-    addTestFigures(): void {               // NEW
+    // TODO: delete this
+    addTestFigures(): void {               
         const redLine: Line = new Line(
-            { x: 10, y: 10 },
-            { w: 300, h: 100 },
+            new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
@@ -36,8 +41,7 @@ export class Drawing {
             );
 
         const greenLine: Line = new Line(
-            { x: 10, y: 10 },
-            { w: 300, h: 200 },
+            new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
@@ -45,14 +49,20 @@ export class Drawing {
                 greenLine
             );
 
-        const blueLine: Line = new Line(
-            { x: 10, y: 10 },
-            { w: 300, h: 300 },
-            { r: 0, g: 0, b: 255, a: 255 }
+        const blackLine: Line = new Line(
+            new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
+            { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blueLine
+                blackLine
             );
+    }
+
+    // NEW
+    selectAll(): void {
+        this.figures.forEach( 
+            (f: Figure) => f.selected = true 
+        );
     }
 }

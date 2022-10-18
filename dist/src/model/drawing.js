@@ -1,3 +1,4 @@
+import { BoundBox, } from './bound-box';
 import { Line } from './line';
 var Drawing = /** @class */ (function () {
     function Drawing() {
@@ -5,19 +6,28 @@ var Drawing = /** @class */ (function () {
         this.modified = false;
         this.name = null;
     }
+    // polymorphism in action
     Drawing.prototype.paint = function (ctx) {
         this.figures.forEach(function (f) { return f.paint(ctx); });
     };
+    // TODO: delete this
     Drawing.prototype.addTestFigures = function () {
-        var redLine = new Line({ x: 10, y: 10 }, { w: 300, h: 100 }, { r: 255, g: 0, b: 0, a: 255 });
+        var redLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
+        { r: 255, g: 0, b: 0, a: 255 });
         this.figures
             .push(redLine);
-        var greenLine = new Line({ x: 10, y: 10 }, { w: 300, h: 200 }, { r: 0, g: 255, b: 0, a: 255 });
+        var greenLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
+        { r: 0, g: 255, b: 0, a: 255 });
         this.figures
             .push(greenLine);
-        var blueLine = new Line({ x: 10, y: 10 }, { w: 300, h: 300 }, { r: 0, g: 0, b: 255, a: 255 });
+        var blackLine = new Line(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
+        { r: 0, g: 0, b: 0, a: 255 });
         this.figures
-            .push(blueLine);
+            .push(blackLine);
+    };
+    // NEW
+    Drawing.prototype.selectAll = function () {
+        this.figures.forEach(function (f) { return f.selected = true; });
     };
     return Drawing;
 }());

@@ -1,6 +1,7 @@
 import { Drawing } from '../model/drawing';
 import { MainWindow } from '../view/main-window';
 
+// Singleton => Immutable
 export class App {
     private static instance: App;
 
@@ -11,10 +12,10 @@ export class App {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
 
-        document.title = 'Graphics Editor v0.2';
+        document.title = 'Graphics Editor v0.3';
     }
 
-    // lazy loading (preferred)
+    // lazy initialization (preferred)
     static getInstance(): App {
         if ( App.instance ) {
             // NOOP
@@ -30,21 +31,26 @@ export class App {
         return this.mainWindow
             .getContext();
     }
-    
+
     run(): void {
-        this.drawing            // NEW // TODO: remove
+        this.drawing            // TODO: remove
             .addTestFigures();
+
+        // NEW
+        this.drawing            // TODO: remove
+            .selectAll();
 
         this.repaint();
     }
 
-    repaint(): void {           // NEW
+    // from model to view 
+    repaint(): void {
         this.mainWindow
             .repaint();
     }
 
     // from view to model
-    paint(                      // NEW
+    paint(
         ctx: CanvasRenderingContext2D ): void {
 
         this.drawing

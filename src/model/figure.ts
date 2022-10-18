@@ -1,29 +1,17 @@
-export interface Position {
-    x: number;
-    y: number;
-}
+import { BoundBox } from './bound-box';
+import { Color } from '../util/color-helper';
+import { GraphicsObject } from './graphics-object';
 
-export interface Dimension {
-    w: number;
-    h: number;
-}
-
-export interface Color {
-    r: number;
-    g: number;
-    b: number;
-    a: number;
-}
-
-export abstract class Figure {
+export abstract class Figure 
+    implements GraphicsObject {
 
     // public interface -------------------------------
+    
     abstract paint( 
         ctx: CanvasRenderingContext2D ): void;
 
     constructor(
-        protected position: Position,
-        protected size: Dimension,
+        protected bbox: BoundBox,       // NEW
         protected color: Color ) {
     }
 
@@ -31,20 +19,11 @@ export abstract class Figure {
         return this._selected;
     }
 
-    // non-public members -----------------------------
-    protected _selected: boolean = false;
-
-    protected static colorAsString(        // NEW
-        color: Color ): string {
-
-        return 'rgba('
-            + color.r
-            + ','
-            + color.g
-            + ','
-            + color.b
-            + ','
-            + color.a
-            + ')';
+    set selected( s: boolean ) {
+        this._selected = s;
     }
+
+    // non-public members -----------------------------
+
+    protected _selected: boolean = false;
 }
