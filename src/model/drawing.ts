@@ -9,7 +9,12 @@ import {
 import { 
     Line 
 } from './line';
-import { Rectangle } from './rectangle';
+import { 
+    Rectangle 
+} from './rectangle';
+import { 
+    Elipse 
+} from './elipse';
 
 export class Drawing {
     private figures: Figure[] = [
@@ -32,31 +37,31 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redRectangle: Rectangle = new Rectangle(
+        const redElipse: Elipse = new Elipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redRectangle
+                redElipse
             );
 
-        const greenRectangle: Rectangle = new Rectangle(
+        const greenElipse: Elipse = new Elipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenRectangle
+                greenElipse
             );
 
-        const blackRectangle: Rectangle = new Rectangle(
+        const blackElipse: Elipse = new Elipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackRectangle
+                blackElipse
             );
     }
 
