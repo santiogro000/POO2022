@@ -12,7 +12,7 @@ export class App {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
 
-        document.title = 'Graphics Editor v0.5';
+        document.title = 'Graphics Editor v0.6';
     }
 
     // lazy initialization (preferred)
@@ -31,7 +31,6 @@ export class App {
         this.drawing            // TODO: remove
             .addTestFigures();
 
-        // NEW
         this.mainWindow
             .init();
 
@@ -51,6 +50,18 @@ export class App {
         this.drawing
             .paint(
                 ctx
+            );
+    }
+
+    // NEW
+    select( 
+        evDown: MouseEvent,
+        evUp?: MouseEvent ): void {
+        
+        this.drawing
+            .select(
+                evDown,
+                evUp
             );
     }
 }

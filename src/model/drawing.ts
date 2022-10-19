@@ -1,3 +1,5 @@
+import app from '../index';
+
 import { 
     BoundBox, 
 } from './bound-box';
@@ -59,10 +61,22 @@ export class Drawing {
             );
     }
 
-    // NEW
     selectAll(): void {
         this.figures.forEach( 
             (f: Figure) => f.selected = true 
         );
+    }
+
+    // NEW
+    select( 
+        evDown: MouseEvent,
+        evUp?: MouseEvent ): void {
+        
+        this.figures.forEach( 
+            (f: Figure) => f.select( evDown, evUp ) 
+        );
+
+        // TODO: something selected?
+        app.repaint();
     }
 }

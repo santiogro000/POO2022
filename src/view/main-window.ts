@@ -24,19 +24,23 @@ export class MainWindow {
 
 // module private -----------------------------------------------------------
 
+import { Tool } from './tool';
+import { SelectionTool } from './selection-tool';
+
 class Canvas {
 
     private htmlElement: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D | null;
 
-    // NEW -----------------------------------
     static readonly LINE_CREATION: number = 0;
     static readonly RECT_CREATION: number = 1;
     static readonly ELLI_CREATION: number = 2;
     static readonly TEXT_CREATION: number = 3;
-    static readonly SELECTION: number = 4;
-
-    private activeTool: number = Canvas.LINE_CREATION;
+    static readonly SELECTION:     number = 4;
+    // NEW -----------------------------------
+    private tools: Tool[] = [
+    ];
+    private activeTool: Tool;
     // NEW -----------------------------------
 
     static readonly PAGE_WIDTH: number = 2000;
@@ -64,8 +68,14 @@ class Canvas {
             );
     }
 
-    // NEW
     init(): void {
+        // NEW
+        this.buildTools();
+
+        this.setActiveTool(
+            Canvas.SELECTION
+        );
+
         // TODO: register for mouse events
         // down, up, move, drag, doubleclick
         // enter, exit
@@ -85,6 +95,14 @@ class Canvas {
                     this
                 )
         );
+    }
+
+    setActiveTool( 
+        t: number ) {
+
+        this.activeTool = this.tools[
+            t
+        ];
     }
 
     getContext(): CanvasRenderingContext2D {
@@ -164,61 +182,34 @@ class Canvas {
         }
     }
 
-    // save mouse position
+    // NEW  // TODO: add remaining tools
+    private buildTools(): void {
+
+        // this.tools[ Canvas.LINE_CREATION ] = new LineCreationTool();
+        // this.tools[ Canvas.RECT_CREATION ] = new RectCreationTool();
+        // this.tools[ Canvas.ELLI_CREATION ] = new ElliCreationTool();
+        // this.tools[ Canvas.TEXT_CREATION ] = new TextCreationTool();
+        
+        this.tools[ Canvas.SELECTION ] = new SelectionTool();
+    }
+
+    // State Pattern
     private handleMouseDown(
         ev: MouseEvent ): void {
 
-        console.log(
-            `handleMouseDown() x=${ev.clientX} y=${ev.clientY} b=${ev.button}`
-        );
-
-        if ( this.activeTool === Canvas.SELECTION ) { 
-            // ...
-        }
-        else {
-            if ( this.activeTool === Canvas.LINE_CREATION ) { 
-
-            }
-            else if ( this.activeTool === Canvas.RECT_CREATION ) {
-    
-            }    
-            else if ( this.activeTool === Canvas.ELLI_CREATION ) {
-    
-            }    
-            else if ( this.activeTool === Canvas.TEXT_CREATION ) {
-    
-            }
-            // ...  for every new figure, all "switches" have
-            //      to be adjusted => error prone => bad design
-        }
+        this.activeTool
+            .onMouseDown(
+                ev
+            );
     }
 
-    // save mouse position
+    // State Pattern
     private handleMouseUp(
         ev: MouseEvent ): void {
 
-        console.log(
-            `handleMouseUp() x=${ev.clientX} y=${ev.clientY} b=${ev.button}`
-        );
-
-        switch ( this.activeTool ) {
-            case Canvas.LINE_CREATION:
-                // ... 
-                break;
-
-            case Canvas.RECT_CREATION: 
-                break;
-
-            case Canvas.ELLI_CREATION: 
-                break;
-
-            case Canvas.TEXT_CREATION: 
-                break;
-    
-            case Canvas.SELECTION: 
-                break;
-
-            // ... error prone
-        }
+        this.activeTool
+            .onMouseUp(
+                ev
+            );
     }
 }

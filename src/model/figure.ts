@@ -41,6 +41,18 @@ export abstract class Figure
         }
     }
 
+    // NEW
+    select( 
+        evDown: MouseEvent,
+        evUp?: MouseEvent ): void {
+        
+        this.selected = this.bbox
+            .select( 
+                evDown, 
+                evUp 
+            );
+    }
+
     // non-public members -----------------------------
 
     protected _selected: boolean = false;

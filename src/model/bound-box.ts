@@ -65,6 +65,24 @@ export class BoundBox
         return this.size.h;
     }
 
+    // NEW
+    select(
+        evDown: MouseEvent,
+        evUp?: MouseEvent ): boolean {
+         
+        if ( evUp ) {
+            // bound box selection
+            return this.contained(
+                evDown, evUp
+            );
+        }
+
+        // point selection
+        return this.contains(
+            evDown
+        );
+    }
+
     // non-public members -----------------------------
     
     private ctrlPoints: ControlPoint[] = [
@@ -105,5 +123,25 @@ export class BoundBox
                     );
                 }
         });
+    }
+
+    private contains(
+        ev: MouseEvent ): boolean {
+
+        const left:   number = this.x;
+        const right:  number = this.x + this.w;
+        const top:    number = this.y;
+        const bottom: number = this.y + this.h;
+                
+        return left < ev.clientX && ev.clientX < right
+            && top < ev.clientY && ev.clientY < bottom;
+    }
+
+    // TODO
+    private contained(
+        evDown: MouseEvent,
+        evUp: MouseEvent ): boolean {
+
+        return false;
     }
 }
