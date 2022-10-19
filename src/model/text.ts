@@ -15,16 +15,6 @@ import {
 export class Text
     extends Figure {
 
-    constructor(
-        bbox: BoundBox,
-        color: Color) {
-
-        super(
-            bbox,
-            color
-        );
-    }
-
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
         const lenghtText = ctx.measureText('Hello World');

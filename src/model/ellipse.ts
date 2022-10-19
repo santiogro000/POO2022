@@ -7,12 +7,12 @@ import {
     ColorHelper,
 } from '../util/color-helper';
 
-import {
-    Figure,
-} from './figure';
+import { 
+    GeometricFigure,
+} from './geometric-figure';
 
 export class Ellipse
-    extends Figure {
+    extends GeometricFigure {
 
     constructor(
         bbox: BoundBox,

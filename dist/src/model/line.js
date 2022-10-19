@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { ColorHelper, } from '../util/color-helper';
-import { Figure, } from './figure';
+import { GeometricFigure, } from './geometric-figure';
 var Line = /** @class */ (function (_super) {
     __extends(Line, _super);
     function Line(bbox, color) {
@@ -26,6 +26,6 @@ var Line = /** @class */ (function (_super) {
         ctx.stroke();
     };
     return Line;
-}(Figure));
+}(GeometricFigure));
 export { Line };
 //# sourceMappingURL=line.js.map

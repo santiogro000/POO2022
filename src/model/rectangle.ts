@@ -8,11 +8,11 @@ import {
 } from '../util/color-helper';
 
 import { 
-    Figure,
-} from './figure';
+    GeometricFigure,
+} from './geometric-figure';
 
 export class Rectangle
-    extends Figure {
+    extends GeometricFigure {
 
     constructor(
         bbox: BoundBox,

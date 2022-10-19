@@ -26,6 +26,11 @@ var Figure = /** @class */ (function () {
                 .paint(ctx);
         }
     };
+    // NEW
+    Figure.prototype.select = function (evDown, evUp) {
+        this.selected = this.bbox
+            .select(evDown, evUp);
+    };
     return Figure;
 }());
 export { Figure };

@@ -11,7 +11,6 @@ var BoundBox = /** @class */ (function () {
     }
     BoundBox.prototype.paint = function (ctx) {
         // draw bound box
-        //ctx.setLineDash([4, 14]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect(this.position.x, this.position.y, this.size.w, this.size.h);
@@ -47,6 +46,15 @@ var BoundBox = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    // NEW
+    BoundBox.prototype.select = function (evDown, evUp) {
+        if (evUp) {
+            // bound box selection
+            return this.contained(evDown, evUp);
+        }
+        // point selection
+        return this.contains(evDown);
+    };
     BoundBox.prototype.addControlPoints = function () {
         // target = ES2017+
         // Object.values(
@@ -71,6 +79,18 @@ var BoundBox = /** @class */ (function () {
                     .push(new ControlPoint(_this, cardinal));
             }
         });
+    };
+    BoundBox.prototype.contains = function (ev) {
+        var left = this.x;
+        var right = this.x + this.w;
+        var top = this.y;
+        var bottom = this.y + this.h;
+        return left < ev.clientX && ev.clientX < right
+            && top < ev.clientY && ev.clientY < bottom;
+    };
+    // TODO
+    BoundBox.prototype.contained = function (evDown, evUp) {
+        return false;
     };
     BoundBox.color = ColorHelper.colorAsString({
         r: 28,
