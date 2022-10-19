@@ -11,6 +11,16 @@ import {
 import { 
     Line 
 } from './line';
+import { 
+    Rectangle 
+} from './rectangle';
+import { 
+    Ellipse 
+} from './ellipse';
+import { 
+    Text 
+} from './text';
+
 
 export class Drawing {
     private figures: Figure[] = [
@@ -33,31 +43,31 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redLine: Line = new Line(
+        const redText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redLine
+                redText
             );
 
-        const greenLine: Line = new Line(
+        const greenText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenLine
+                greenText
             );
 
-        const blackLine: Line = new Line(
+        const blackText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackLine
+                blackText
             );
     }
 
