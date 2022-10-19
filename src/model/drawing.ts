@@ -13,8 +13,11 @@ import {
     Rectangle 
 } from './rectangle';
 import { 
-    Elipse 
-} from './elipse';
+    Ellipse 
+} from './ellipse';
+import { 
+    Text 
+} from './text';
 
 export class Drawing {
     private figures: Figure[] = [
@@ -37,31 +40,31 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redElipse: Elipse = new Elipse(
+        const redText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redElipse
+                redText
             );
 
-        const greenElipse: Elipse = new Elipse(
+        const greenText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenElipse
+                greenText
             );
 
-        const blackElipse: Elipse = new Elipse(
+        const blackText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackElipse
+                blackText
             );
     }
 
