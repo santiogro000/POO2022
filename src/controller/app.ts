@@ -12,7 +12,7 @@ export class App {
         this.drawing = new Drawing();
         this.mainWindow = new MainWindow();
 
-        document.title = 'Graphics Editor v0.4';
+        document.title = 'Graphics Editor v0.5';
     }
 
     // lazy initialization (preferred)
@@ -32,8 +32,8 @@ export class App {
             .addTestFigures();
 
         // NEW
-        this.drawing            // TODO: remove
-            .selectAll();
+        this.mainWindow
+            .init();
 
         this.repaint();
     }

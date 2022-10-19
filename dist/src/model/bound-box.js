@@ -11,6 +11,7 @@ var BoundBox = /** @class */ (function () {
     }
     BoundBox.prototype.paint = function (ctx) {
         // draw bound box
+        //ctx.setLineDash([4, 14]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect(this.position.x, this.position.y, this.size.w, this.size.h);

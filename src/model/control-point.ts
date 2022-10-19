@@ -33,37 +33,9 @@ export class ControlPoint
         // TODO: complete switch
 
         switch ( this.cardinal ) {
-            case Cardinal.NORTH:
-                x = this.owner.x + this.owner.w / 2;
-                y = this.owner.y;
-                break;
-            case Cardinal.NORTH_EAST:
-                x = this.owner.x + this.owner.w;
-                y = this.owner.y;
-                break;
-            case Cardinal.EAST:
-                x = this.owner.x + this.owner.w;
-                y = this.owner.y + this.owner.h/2;
-                break;
-            case Cardinal.SOUTH_EAST:
-                x = this.owner.x + this.owner.w;
-                y = this.owner.y + this.owner.h;
-                break;
             case Cardinal.SOUTH:
                 x = this.owner.x + this.owner.w / 2;
                 y = this.owner.y + this.owner.h;
-                break;
-            case Cardinal.SOUTH_WEST:
-                x = this.owner.x;
-                y = this.owner.y + this.owner.h;
-                break;
-            case Cardinal.WEST:
-                x = this.owner.x;
-                y = this.owner.y + this.owner.h/2;
-                break;
-            case Cardinal.NORTH_WEST:
-                x = this.owner.x;
-                y = this.owner.y;
                 break;
         }
 

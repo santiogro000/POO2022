@@ -35,7 +35,6 @@ export class BoundBox
         ctx: CanvasRenderingContext2D ): void {
 
         // draw bound box
-        //ctx.setLineDash([4, 14]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect( 

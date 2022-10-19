@@ -10,7 +10,13 @@ export class MainWindow {
         this.canvas = new Canvas();
     }
 
-    repaint(): void {           // NEW
+    // NEW
+    init(): void {
+        this.canvas
+            .init();
+    }
+
+    repaint(): void {
         this.canvas
             .repaint();
     }
@@ -22,6 +28,16 @@ class Canvas {
 
     private htmlElement: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D | null;
+
+    // NEW -----------------------------------
+    static readonly LINE_CREATION: number = 0;
+    static readonly RECT_CREATION: number = 1;
+    static readonly ELLI_CREATION: number = 2;
+    static readonly TEXT_CREATION: number = 3;
+    static readonly SELECTION: number = 4;
+
+    private activeTool: number = Canvas.LINE_CREATION;
+    // NEW -----------------------------------
 
     static readonly PAGE_WIDTH: number = 2000;
     static readonly PAGE_HEIGHT: number = 2000;
@@ -46,6 +62,29 @@ class Canvas {
             .getContext(
                 '2d'
             );
+    }
+
+    // NEW
+    init(): void {
+        // TODO: register for mouse events
+        // down, up, move, drag, doubleclick
+        // enter, exit
+
+        window.addEventListener( 
+            'mousedown', 
+            this.handleMouseDown
+                .bind(
+                    this
+                )
+        );
+
+        window.addEventListener( 
+            'mouseup', 
+            this.handleMouseUp
+                .bind(
+                    this
+                )
+        );
     }
 
     getContext(): CanvasRenderingContext2D {
@@ -122,6 +161,64 @@ class Canvas {
                 );
                 ctx.stroke();
             }
+        }
+    }
+
+    // save mouse position
+    private handleMouseDown(
+        ev: MouseEvent ): void {
+
+        console.log(
+            `handleMouseDown() x=${ev.clientX} y=${ev.clientY} b=${ev.button}`
+        );
+
+        if ( this.activeTool === Canvas.SELECTION ) { 
+            // ...
+        }
+        else {
+            if ( this.activeTool === Canvas.LINE_CREATION ) { 
+
+            }
+            else if ( this.activeTool === Canvas.RECT_CREATION ) {
+    
+            }    
+            else if ( this.activeTool === Canvas.ELLI_CREATION ) {
+    
+            }    
+            else if ( this.activeTool === Canvas.TEXT_CREATION ) {
+    
+            }
+            // ...  for every new figure, all "switches" have
+            //      to be adjusted => error prone => bad design
+        }
+    }
+
+    // save mouse position
+    private handleMouseUp(
+        ev: MouseEvent ): void {
+
+        console.log(
+            `handleMouseUp() x=${ev.clientX} y=${ev.clientY} b=${ev.button}`
+        );
+
+        switch ( this.activeTool ) {
+            case Canvas.LINE_CREATION:
+                // ... 
+                break;
+
+            case Canvas.RECT_CREATION: 
+                break;
+
+            case Canvas.ELLI_CREATION: 
+                break;
+
+            case Canvas.TEXT_CREATION: 
+                break;
+    
+            case Canvas.SELECTION: 
+                break;
+
+            // ... error prone
         }
     }
 }

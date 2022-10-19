@@ -1,5 +1,5 @@
 import { BoundBox, } from './bound-box';
-import { Elipse } from './elipse';
+import { Text } from './text';
 var Drawing = /** @class */ (function () {
     function Drawing() {
         this.figures = [];
@@ -12,18 +12,18 @@ var Drawing = /** @class */ (function () {
     };
     // TODO: delete this
     Drawing.prototype.addTestFigures = function () {
-        var redElipse = new Elipse(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
+        var redText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
         { r: 255, g: 0, b: 0, a: 255 });
         this.figures
-            .push(redElipse);
-        var greenElipse = new Elipse(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
+            .push(redText);
+        var greenText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
         { r: 0, g: 255, b: 0, a: 255 });
         this.figures
-            .push(greenElipse);
-        var blackElipse = new Elipse(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
+            .push(greenText);
+        var blackText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
         { r: 0, g: 0, b: 0, a: 255 });
         this.figures
-            .push(blackElipse);
+            .push(blackText);
     };
     // NEW
     Drawing.prototype.selectAll = function () {
