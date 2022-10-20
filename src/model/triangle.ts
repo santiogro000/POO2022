@@ -1,9 +1,7 @@
-import { 
-    GeometricFigure,
-} from './geometric-figure';
+import { GeometricClosedFigure } from "./geometric-closed-figure";
 
 export class Triangle
-    extends GeometricFigure {
+    extends GeometricClosedFigure {
         
     protected doPaint(
         ctx: CanvasRenderingContext2D ): void {
