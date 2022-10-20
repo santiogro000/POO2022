@@ -1,8 +1,4 @@
 import { 
-    BoundBox, 
-} from './bound-box';
-
-import { 
     Color,
     ColorHelper, 
 } from '../util/color-helper';
@@ -13,16 +9,6 @@ import {
 
 export class Rectangle
     extends GeometricFigure {
-
-    constructor(
-        bbox: BoundBox,
-        color: Color ) {
-
-        super(
-            bbox,
-            color
-        );
-    }
         
     protected doPaint(
         ctx: CanvasRenderingContext2D ): void {

@@ -15,8 +15,8 @@ import { ColorHelper, } from '../util/color-helper';
 import { GeometricFigure, } from './geometric-figure';
 var Line = /** @class */ (function (_super) {
     __extends(Line, _super);
-    function Line(bbox, color) {
-        return _super.call(this, bbox, color) || this;
+    function Line() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Line.prototype.doPaint = function (ctx) {
         ctx.strokeStyle = ColorHelper.colorAsString(this.color);

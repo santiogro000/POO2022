@@ -12,11 +12,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { ColorHelper, } from '../util/color-helper';
-import { Figure, } from './figure';
+import { GeometricFigure, } from './geometric-figure';
 var Rectangle = /** @class */ (function (_super) {
     __extends(Rectangle, _super);
-    function Rectangle(bbox, color) {
-        return _super.call(this, bbox, color) || this;
+    function Rectangle() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Rectangle.prototype.doPaint = function (ctx) {
         ctx.strokeStyle = ColorHelper.colorAsString(this.color);
@@ -42,6 +42,6 @@ var Rectangle = /** @class */ (function (_super) {
         ctx.stroke();
     };
     return Rectangle;
-}(Figure));
+}(GeometricFigure));
 export { Rectangle };
 //# sourceMappingURL=rectangle.js.map

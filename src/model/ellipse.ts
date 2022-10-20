@@ -14,16 +14,6 @@ import {
 export class Ellipse
     extends GeometricFigure {
 
-    constructor(
-        bbox: BoundBox,
-        color: Color) {
-
-        super(
-            bbox,
-            color
-        );
-    }
-
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
 

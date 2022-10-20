@@ -15,17 +15,17 @@ import { ColorHelper, } from '../util/color-helper';
 import { Figure, } from './figure';
 var Text = /** @class */ (function (_super) {
     __extends(Text, _super);
-    function Text(bbox, color) {
-        return _super.call(this, bbox, color) || this;
+    function Text() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Text.prototype.doPaint = function (ctx) {
-        var lenghtText = ctx.measureText('Hello World');
-        var text = "";
+        var text = "Hello world sweet world in this October 18th";
+        var lenghtText = ctx.measureText(text);
         ctx.textBaseline = "hanging";
         ctx.font = '48px serif';
         lenghtText.actualBoundingBoxAscent;
         ctx.fillStyle = ColorHelper.colorAsString(this.color);
-        ctx.fillText('Hello world sweet world in this October 18th', (this.bbox.x), (this.bbox.h));
+        ctx.fillText(text, (this.bbox.x), (this.bbox.h));
     };
     return Text;
 }(Figure));

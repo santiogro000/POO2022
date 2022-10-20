@@ -12,11 +12,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { ColorHelper, } from '../util/color-helper';
-import { Figure, } from './figure';
+import { GeometricFigure, } from './geometric-figure';
 var Ellipse = /** @class */ (function (_super) {
     __extends(Ellipse, _super);
-    function Ellipse(bbox, color) {
-        return _super.call(this, bbox, color) || this;
+    function Ellipse() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Ellipse.prototype.doPaint = function (ctx) {
         ctx.strokeStyle = ColorHelper.colorAsString(this.color);
@@ -40,6 +40,6 @@ var Ellipse = /** @class */ (function (_super) {
         ctx.closePath();
     };
     return Ellipse;
-}(Figure));
+}(GeometricFigure));
 export { Ellipse };
 //# sourceMappingURL=ellipse.js.map

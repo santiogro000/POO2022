@@ -1,8 +1,4 @@
 import { 
-    BoundBox, 
-} from './bound-box';
-
-import { 
     Color,
     ColorHelper, 
 } from '../util/color-helper';
@@ -17,15 +13,15 @@ export class Text
 
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
-        const lenghtText = ctx.measureText('Hello World');
-        const text = "";
+        const text = "Hello world sweet world in this October 18th";
+        const lenghtText = ctx.measureText(text);
         ctx.textBaseline = "hanging";
         ctx.font = '48px serif';
         lenghtText.actualBoundingBoxAscent;
         ctx.fillStyle = ColorHelper.colorAsString(
             this.color
         );
-        ctx.fillText('Hello world sweet world in this October 18th', (this.bbox.x), (this.bbox.h));
+        ctx.fillText(text, (this.bbox.x), (this.bbox.h));
         
         }
 }
