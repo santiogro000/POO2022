@@ -43,31 +43,31 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redEllipse: Ellipse = new Ellipse(
+        const redText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redEllipse
+                redText
             );
 
-        const greenEllipse: Ellipse = new Ellipse(
+        const greenText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenEllipse
+                greenText
             );
 
-        const blackEllipse: Ellipse = new Ellipse(
+        const blackText: Text = new Text(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackEllipse
+                blackText
             );
     }
 

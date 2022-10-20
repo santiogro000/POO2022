@@ -15,8 +15,48 @@ import { Figure } from './figure';
 var GeometricFigure = /** @class */ (function (_super) {
     __extends(GeometricFigure, _super);
     function GeometricFigure() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._linewidth = 49;
+        return _this;
     }
+    GeometricFigure.prototype.doLineStyle = function (ctx) {
+        ctx.lineWidth = this.linewidth;
+        ctx.setLineDash([this.dashStroke, this.dashSpace]);
+    };
+    Object.defineProperty(GeometricFigure.prototype, "linewidth", {
+        get: function () {
+            return this._linewidth;
+        },
+        set: function (n) {
+            this._linewidth = n;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(GeometricFigure.prototype, "dashStroke", {
+        get: function () {
+            return this._dashStroke;
+        },
+        set: function (n) {
+            this._dashStroke = n;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(GeometricFigure.prototype, "dashSpace", {
+        get: function () {
+            return this._dashSpace;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(GeometricFigure.prototype, "dash", {
+        set: function (n) {
+            this._dashSpace = n;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return GeometricFigure;
 }(Figure));
 export { GeometricFigure };

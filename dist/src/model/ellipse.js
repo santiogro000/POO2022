@@ -18,7 +18,6 @@ var Ellipse = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Ellipse.prototype.doPaint = function (ctx) {
-        ctx.strokeStyle = this.stringColor;
         ctx.beginPath();
         var angle = 0;
         var raidiusX = this.bbox.w / 2;

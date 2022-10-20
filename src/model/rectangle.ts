@@ -8,7 +8,6 @@ export class Rectangle
     protected doPaint(
         ctx: CanvasRenderingContext2D ): void {
 
-        ctx.strokeStyle = this.stringColor;
         //Top line
         ctx.beginPath();
         ctx.moveTo(
@@ -54,4 +53,5 @@ export class Rectangle
         );
         ctx.stroke();
     }
+    
 }

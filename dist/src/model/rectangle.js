@@ -11,7 +11,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { ColorHelper, } from '../util/color-helper';
 import { GeometricFigure, } from './geometric-figure';
 var Rectangle = /** @class */ (function (_super) {
     __extends(Rectangle, _super);
@@ -19,7 +18,6 @@ var Rectangle = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Rectangle.prototype.doPaint = function (ctx) {
-        ctx.strokeStyle = ColorHelper.colorAsString(this.color);
         //Top line
         ctx.beginPath();
         ctx.moveTo(this.bbox.x, this.bbox.y);

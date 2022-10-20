@@ -11,7 +11,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { ColorHelper, } from '../util/color-helper';
 import { Figure, } from './figure';
 var Text = /** @class */ (function (_super) {
     __extends(Text, _super);
@@ -20,11 +19,11 @@ var Text = /** @class */ (function (_super) {
     }
     Text.prototype.doPaint = function (ctx) {
         var text = "Hello world sweet world in this October 18th";
+        ctx.fillStyle = ctx.strokeStyle;
         var lenghtText = ctx.measureText(text);
         ctx.textBaseline = "hanging";
         ctx.font = '48px serif';
         lenghtText.actualBoundingBoxAscent;
-        ctx.fillStyle = ColorHelper.colorAsString(this.color);
         ctx.fillText(text, (this.bbox.x), (this.bbox.h));
     };
     return Text;

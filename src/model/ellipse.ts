@@ -8,8 +8,6 @@ export class Ellipse
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
 
-        ctx.strokeStyle = this.stringColor;
-
         ctx.beginPath();
         let angle = 0
         let raidiusX = this.bbox.w/2;

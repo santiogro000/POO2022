@@ -15,7 +15,7 @@ export class Text
         ctx: CanvasRenderingContext2D): void {
         const text = "Hello world sweet world in this October 18th";
         
-        ctx.fillStyle = this.stringColor;
+        ctx.fillStyle = ctx.strokeStyle;
         const lenghtText = ctx.measureText(text);
         ctx.textBaseline = "hanging";
         ctx.font = '48px serif';

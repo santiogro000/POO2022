@@ -36,7 +36,7 @@ export class BoundBox
 
         // draw bound box
         ctx.save();
-        ctx.setLineDash([5, 15]);
+        ctx.setLineDash([5, 5]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect( 

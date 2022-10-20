@@ -9,8 +9,6 @@ export class Line
     protected doPaint(
         ctx: CanvasRenderingContext2D ): void {
 
-        ctx.strokeStyle = this.stringColor;
-
         ctx.beginPath();
         ctx.moveTo(
             this.bbox.x, 

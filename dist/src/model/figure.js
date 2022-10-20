@@ -5,7 +5,6 @@ var Figure = /** @class */ (function () {
         this.bbox = bbox;
         this.color = color;
         this._selected = false;
-        this.stringColor = ColorHelper.colorAsString(this.color);
     }
     ;
     Object.defineProperty(Figure.prototype, "selected", {
@@ -24,11 +23,13 @@ var Figure = /** @class */ (function () {
     Figure.prototype.paint = function (ctx) {
         // 1. Saves current state of ctx
         ctx.save();
-        // 2. Paints figure
+        // 2. Sets Color
+        ctx.strokeStyle = ColorHelper.colorAsString(this.color);
+        // 3. Paints figure
         this.doPaint(ctx);
         // 3. Restores state of ctx
         ctx.restore();
-        // 4. paint bounding box
+        // 4. Paint bounding box (if aplicable)
         if (this.selected) {
             this.bbox
                 .paint(ctx);

@@ -25,10 +25,6 @@ export abstract class Figure
 
     };
     
-    protected stringColor: string = ColorHelper.colorAsString(
-            this.color
-        );
-    
     
     // Template Method
     paint( 
@@ -36,14 +32,21 @@ export abstract class Figure
         
         // 1. Saves current state of ctx
         ctx.save();
-        // 2. Paints figure
+
+        // 2. Sets Color
+        ctx.strokeStyle = ColorHelper.colorAsString(  
+            this.color
+        ); 
+
+        // 3. Paints figure
         this.doPaint(
             ctx
         );
+        
         // 3. Restores state of ctx
         ctx.restore();
 
-        // 4. paint bounding box
+        // 4. Paint bounding box (if aplicable)
         if ( this.selected ) {
             this.bbox
                 .paint(
