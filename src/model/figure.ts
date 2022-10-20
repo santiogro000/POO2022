@@ -39,6 +39,7 @@ export abstract class Figure
                     ctx
                 );
         }
+        
     }
 
     // NEW
@@ -51,9 +52,7 @@ export abstract class Figure
                 evDown, 
                 evUp 
             );
-    }
-
     // non-public members -----------------------------
-
+    }
     protected _selected: boolean = false;
 }
