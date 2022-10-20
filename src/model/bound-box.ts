@@ -35,6 +35,8 @@ export class BoundBox
         ctx: CanvasRenderingContext2D ): void {
 
         // draw bound box
+        ctx.save();
+        ctx.setLineDash([5, 15]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect( 
@@ -42,6 +44,7 @@ export class BoundBox
             this.size.w,     this.size.h 
         );
         ctx.stroke();
+        ctx.restore();
 
         // draw control points
         this.ctrlPoints.forEach( 

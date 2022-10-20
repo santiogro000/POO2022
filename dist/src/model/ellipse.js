@@ -11,7 +11,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { ColorHelper, } from '../util/color-helper';
 import { GeometricFigure, } from './geometric-figure';
 var Ellipse = /** @class */ (function (_super) {
     __extends(Ellipse, _super);
@@ -19,7 +18,7 @@ var Ellipse = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Ellipse.prototype.doPaint = function (ctx) {
-        ctx.strokeStyle = ColorHelper.colorAsString(this.color);
+        ctx.strokeStyle = this.stringColor;
         ctx.beginPath();
         var angle = 0;
         var raidiusX = this.bbox.w / 2;

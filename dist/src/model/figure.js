@@ -1,11 +1,13 @@
+import { ColorHelper } from '../util/color-helper';
 var Figure = /** @class */ (function () {
     function Figure(bbox, // NEW
     color) {
         this.bbox = bbox;
         this.color = color;
-        // non-public members -----------------------------
         this._selected = false;
+        this.stringColor = ColorHelper.colorAsString(this.color);
     }
+    ;
     Object.defineProperty(Figure.prototype, "selected", {
         get: function () {
             return this._selected;
@@ -16,11 +18,17 @@ var Figure = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    ;
+    ;
     // Template Method
     Figure.prototype.paint = function (ctx) {
-        // 1. paint figure
+        // 1. Saves current state of ctx
+        ctx.save();
+        // 2. Paints figure
         this.doPaint(ctx);
-        // 2. paint bounding box
+        // 3. Restores state of ctx
+        ctx.restore();
+        // 4. paint bounding box
         if (this.selected) {
             this.bbox
                 .paint(ctx);
@@ -30,6 +38,7 @@ var Figure = /** @class */ (function () {
     Figure.prototype.select = function (evDown, evUp) {
         this.selected = this.bbox
             .select(evDown, evUp);
+        // non-public members -----------------------------
     };
     return Figure;
 }());

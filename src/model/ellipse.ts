@@ -1,12 +1,3 @@
-import {
-    BoundBox,
-} from './bound-box';
-
-import {
-    Color,
-    ColorHelper,
-} from '../util/color-helper';
-
 import { 
     GeometricFigure,
 } from './geometric-figure';
@@ -17,9 +8,7 @@ export class Ellipse
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
 
-        ctx.strokeStyle = ColorHelper.colorAsString(
-            this.color
-        );
+        ctx.strokeStyle = this.stringColor;
 
         ctx.beginPath();
         let angle = 0

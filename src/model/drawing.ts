@@ -43,39 +43,39 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redText: Text = new Text(
+        const redEllipse: Ellipse = new Ellipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redText
+                redEllipse
             );
 
-        const greenText: Text = new Text(
+        const greenEllipse: Ellipse = new Ellipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenText
+                greenEllipse
             );
 
-        const blackText: Text = new Text(
+        const blackEllipse: Ellipse = new Ellipse(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackText
+                blackEllipse
             );
     }
 
-    selectAll(): void {
+    /* selectAll(): void {
         this.figures.forEach( 
             (f: Figure) => f.selected = true 
         );
-    }
+    } */
 
     // NEW
     select( 

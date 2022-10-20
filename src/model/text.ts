@@ -14,13 +14,12 @@ export class Text
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
         const text = "Hello world sweet world in this October 18th";
+        
+        ctx.fillStyle = this.stringColor;
         const lenghtText = ctx.measureText(text);
         ctx.textBaseline = "hanging";
         ctx.font = '48px serif';
         lenghtText.actualBoundingBoxAscent;
-        ctx.fillStyle = ColorHelper.colorAsString(
-            this.color
-        );
         ctx.fillText(text, (this.bbox.x), (this.bbox.h));
         
         }

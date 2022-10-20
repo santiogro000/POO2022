@@ -1,9 +1,4 @@
 import { 
-    Color,
-    ColorHelper, 
-} from '../util/color-helper';
-
-import { 
     GeometricFigure,
 } from './geometric-figure';
 
@@ -13,9 +8,7 @@ export class Rectangle
     protected doPaint(
         ctx: CanvasRenderingContext2D ): void {
 
-        ctx.strokeStyle = ColorHelper.colorAsString(
-            this.color
-        );
+        ctx.strokeStyle = this.stringColor;
         //Top line
         ctx.beginPath();
         ctx.moveTo(

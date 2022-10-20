@@ -1,5 +1,5 @@
 import { BoundBox } from './bound-box';
-import { Color } from '../util/color-helper';
+import { Color,ColorHelper } from '../util/color-helper';
 import { GraphicsObject } from './graphics-object';
 
 export abstract class Figure 
@@ -13,26 +13,37 @@ export abstract class Figure
     constructor(
         protected bbox: BoundBox,       // NEW
         protected color: Color ) {
-    }
+    };
+    protected _selected: boolean = false;
 
     get selected(): boolean {
         return this._selected;
-    }
+    };
 
     set selected( s: boolean ) {
         this._selected = s;
-    }
 
+    };
+    
+    protected stringColor: string = ColorHelper.colorAsString(
+            this.color
+        );
+    
+    
     // Template Method
     paint( 
         ctx: CanvasRenderingContext2D ): void {
-
-        // 1. paint figure
+        
+        // 1. Saves current state of ctx
+        ctx.save();
+        // 2. Paints figure
         this.doPaint(
             ctx
         );
+        // 3. Restores state of ctx
+        ctx.restore();
 
-        // 2. paint bounding box
+        // 4. paint bounding box
         if ( this.selected ) {
             this.bbox
                 .paint(
@@ -54,5 +65,4 @@ export abstract class Figure
             );
     // non-public members -----------------------------
     }
-    protected _selected: boolean = false;
 }

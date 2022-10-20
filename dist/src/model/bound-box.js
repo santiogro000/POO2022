@@ -11,10 +11,13 @@ var BoundBox = /** @class */ (function () {
     }
     BoundBox.prototype.paint = function (ctx) {
         // draw bound box
+        ctx.save();
+        ctx.setLineDash([5, 15]);
         ctx.strokeStyle = BoundBox.color;
         ctx.beginPath();
         ctx.rect(this.position.x, this.position.y, this.size.w, this.size.h);
         ctx.stroke();
+        ctx.restore();
         // draw control points
         this.ctrlPoints.forEach(function (cp) { return cp.paint(ctx); });
     };
