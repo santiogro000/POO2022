@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { GeometricFigure, } from './geometric-figure';
+import { GeometricClosedFigure } from "./geometric-closed-figure";
 var Rectangle = /** @class */ (function (_super) {
     __extends(Rectangle, _super);
     function Rectangle() {
@@ -22,24 +22,21 @@ var Rectangle = /** @class */ (function (_super) {
         ctx.beginPath();
         ctx.moveTo(this.bbox.x, this.bbox.y);
         ctx.lineTo(this.bbox.x + this.bbox.w, this.bbox.y);
-        ctx.stroke();
         //Right line
-        ctx.beginPath();
         ctx.moveTo(this.bbox.x + this.bbox.w, this.bbox.y);
         ctx.lineTo(this.bbox.x + this.bbox.w, this.bbox.y + this.bbox.h);
-        ctx.stroke();
         //Bottom line
-        ctx.beginPath();
         ctx.moveTo(this.bbox.x + this.bbox.w, this.bbox.y + this.bbox.h);
         ctx.lineTo(this.bbox.x, this.bbox.y + this.bbox.h);
-        ctx.stroke();
         //Left line
-        ctx.beginPath();
         ctx.moveTo(this.bbox.x, this.bbox.y + this.bbox.h);
         ctx.lineTo(this.bbox.x, this.bbox.y);
         ctx.stroke();
+        ctx.closePath();
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
     };
     return Rectangle;
-}(GeometricFigure));
+}(GeometricClosedFigure));
 export { Rectangle };
 //# sourceMappingURL=rectangle.js.map

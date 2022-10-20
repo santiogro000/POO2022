@@ -16,9 +16,8 @@ export class Rectangle
             this.bbox.x + this.bbox.w, 
             this.bbox.y
         );
-        ctx.stroke();
+        
         //Right line
-        ctx.beginPath();
         ctx.moveTo(
             this.bbox.x + this.bbox.w, 
             this.bbox.y
@@ -27,9 +26,8 @@ export class Rectangle
             this.bbox.x + this.bbox.w, 
             this.bbox.y + this.bbox.h
         );
-        ctx.stroke();
+        
         //Bottom line
-        ctx.beginPath();
         ctx.moveTo(
             this.bbox.x + this.bbox.w, 
             this.bbox.y + this.bbox.h
@@ -38,9 +36,8 @@ export class Rectangle
             this.bbox.x, 
             this.bbox.y + this.bbox.h
         );
-        ctx.stroke();
+        
         //Left line
-        ctx.beginPath();
         ctx.moveTo(
             this.bbox.x, 
             this.bbox.y + this.bbox.h
@@ -50,6 +47,9 @@ export class Rectangle
             this.bbox.y 
         );
         ctx.stroke();
+        ctx.closePath();
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
     }
     
 }

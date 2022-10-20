@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { GeometricFigure, } from './geometric-figure';
+import { GeometricClosedFigure } from "./geometric-closed-figure";
 var Ellipse = /** @class */ (function (_super) {
     __extends(Ellipse, _super);
     function Ellipse() {
@@ -41,6 +41,6 @@ var Ellipse = /** @class */ (function (_super) {
         ctx.fill();
     };
     return Ellipse;
-}(GeometricFigure));
+}(GeometricClosedFigure));
 export { Ellipse };
 //# sourceMappingURL=ellipse.js.map

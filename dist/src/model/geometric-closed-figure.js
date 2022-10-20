@@ -11,26 +11,18 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import { GeometricClosedFigure } from "./geometric-closed-figure";
-var Triangle = /** @class */ (function (_super) {
-    __extends(Triangle, _super);
-    function Triangle() {
+import { GeometricFigure } from './geometric-figure';
+var GeometricClosedFigure = /** @class */ (function (_super) {
+    __extends(GeometricClosedFigure, _super);
+    function GeometricClosedFigure() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Triangle.prototype.doPaint = function (ctx) {
-        ctx.beginPath();
-        //Bottom Right Corner
-        ctx.moveTo(this.bbox.x, this.bbox.y + this.bbox.h);
-        //Middle Top
-        ctx.lineTo(this.bbox.x + (this.bbox.w) / 2, this.bbox.y);
-        ctx.lineTo(this.bbox.x + this.bbox.w, this.bbox.y + this.bbox.h);
-        //Bottom line
-        ctx.lineTo(this.bbox.x, this.bbox.y + this.bbox.h);
-        ctx.closePath();
+    GeometricClosedFigure.prototype.doFill = function (ctx) {
         ctx.fillStyle = ctx.strokeStyle;
         ctx.fill();
     };
-    return Triangle;
-}(GeometricClosedFigure));
-export { Triangle };
-//# sourceMappingURL=triangle.js.map
+    ;
+    return GeometricClosedFigure;
+}(GeometricFigure));
+export { GeometricClosedFigure };
+//# sourceMappingURL=geometric-closed-figure.js.map
