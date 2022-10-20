@@ -18,6 +18,7 @@ var Ellipse = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Ellipse.prototype.doPaint = function (ctx) {
+        var ellipse = new Path2D();
         ctx.beginPath();
         var angle = 0;
         var raidiusX = this.bbox.w / 2;
@@ -36,6 +37,8 @@ var Ellipse = /** @class */ (function (_super) {
         }
         ctx.stroke();
         ctx.closePath();
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
     };
     return Ellipse;
 }(GeometricFigure));

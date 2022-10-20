@@ -15,6 +15,9 @@ import {
     Rectangle 
 } from './rectangle';
 import { 
+    Triangle 
+} from './triangle';
+import { 
     Ellipse 
 } from './ellipse';
 import { 
@@ -43,31 +46,31 @@ export class Drawing {
 
     // TODO: delete this
     addTestFigures(): void {               
-        const redText: Text = new Text(
+        const redTriangle: Triangle = new Triangle(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 100 } ),   // NEW
             { r: 255, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                redText
+                redTriangle
             );
 
-        const greenText: Text = new Text(
+        const greenTriangle: Triangle = new Triangle(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 200 } ),   // NEW
             { r: 0, g: 255, b: 0, a: 255 }
         );
         this.figures
             .push(
-                greenText
+                greenTriangle
             );
 
-        const blackText: Text = new Text(
+        const blackTriangle: Triangle = new Triangle(
             new BoundBox( { x: 100, y: 100 }, { w: 400, h: 300 } ),   // NEW
             { r: 0, g: 0, b: 0, a: 255 }
         );
         this.figures
             .push(
-                blackText
+                blackTriangle
             );
     }
 

@@ -7,7 +7,8 @@ export class Ellipse
 
     protected doPaint(
         ctx: CanvasRenderingContext2D): void {
-
+        
+        let ellipse = new Path2D();
         ctx.beginPath();
         let angle = 0
         let raidiusX = this.bbox.w/2;
@@ -26,5 +27,7 @@ export class Ellipse
         }
         ctx.stroke();
         ctx.closePath();
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
     }
 }

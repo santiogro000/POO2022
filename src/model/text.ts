@@ -1,8 +1,3 @@
-import { 
-    Color,
-    ColorHelper, 
-} from '../util/color-helper';
-
 import {
     Figure,
 } from './figure';

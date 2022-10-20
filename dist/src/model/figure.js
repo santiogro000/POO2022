@@ -27,9 +27,9 @@ var Figure = /** @class */ (function () {
         ctx.strokeStyle = ColorHelper.colorAsString(this.color);
         // 3. Paints figure
         this.doPaint(ctx);
-        // 3. Restores state of ctx
+        // 4. Restores state of ctx
         ctx.restore();
-        // 4. Paint bounding box (if aplicable)
+        // 5. Paint bounding box (if aplicable)
         if (this.selected) {
             this.bbox
                 .paint(ctx);

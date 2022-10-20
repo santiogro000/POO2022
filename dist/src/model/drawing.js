@@ -1,6 +1,6 @@
 import app from '../index';
 import { BoundBox, } from './bound-box';
-import { Text } from './text';
+import { Triangle } from './triangle';
 var Drawing = /** @class */ (function () {
     function Drawing() {
         this.figures = [];
@@ -13,18 +13,18 @@ var Drawing = /** @class */ (function () {
     };
     // TODO: delete this
     Drawing.prototype.addTestFigures = function () {
-        var redText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
+        var redTriangle = new Triangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 100 }), // NEW
         { r: 255, g: 0, b: 0, a: 255 });
         this.figures
-            .push(redText);
-        var greenText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
+            .push(redTriangle);
+        var greenTriangle = new Triangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 200 }), // NEW
         { r: 0, g: 255, b: 0, a: 255 });
         this.figures
-            .push(greenText);
-        var blackText = new Text(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
+            .push(greenTriangle);
+        var blackTriangle = new Triangle(new BoundBox({ x: 100, y: 100 }, { w: 400, h: 300 }), // NEW
         { r: 0, g: 0, b: 0, a: 255 });
         this.figures
-            .push(blackText);
+            .push(blackTriangle);
     };
     /* selectAll(): void {
         this.figures.forEach(
